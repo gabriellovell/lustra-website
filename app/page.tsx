@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
@@ -50,10 +49,15 @@ export default function Home() {
     }
 
     try {
+      const params = new URLSearchParams();
+      formData.forEach((value, key) => {
+        params.append(key, value as string);
+      });
+      
       const response = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData as any).toString(),
+        body: params.toString(),
       });
 
       if (response.ok) {
@@ -136,7 +140,7 @@ export default function Home() {
               Why Choose Lustra?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Dating apps can be overwhelming. Lustra's AI technology helps you stand out from the crowd with data-driven profile optimization.
+              Dating apps can be overwhelming. Lustra&apos;s AI technology helps you stand out from the crowd with data-driven profile optimization.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -245,7 +249,7 @@ export default function Home() {
           </div>
           <div className="space-y-8">
             <div className="border-b border-gray-200 pb-8">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">How does Lustra's AI work?</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">How does Lustra&apos;s AI work?</h3>
               <p className="text-gray-600">Lustra uses advanced machine learning algorithms trained on thousands of successful dating profiles. It analyzes photo quality, bio effectiveness, and messaging patterns to provide personalized recommendations.</p>
             </div>
             <div className="border-b border-gray-200 pb-8">
@@ -276,7 +280,7 @@ export default function Home() {
               Get in Touch
             </h2>
             <p className="text-xl text-gray-600">
-              Have questions? We'd love to hear from you.
+              Have questions? We&apos;d love to hear from you.
             </p>
           </div>
           <div className="bg-white rounded-2xl shadow-lg p-8">

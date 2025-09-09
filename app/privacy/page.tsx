@@ -115,7 +115,7 @@ export default function Privacy() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Children's Privacy</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Children&apos;s Privacy</h2>
               <p className="text-gray-700 leading-relaxed">
                 Lustra is intended for users aged 18 and older. We do not knowingly collect personal information from children under 18. If we discover that a child under 18 has provided us with personal information, we will promptly delete such information.
               </p>
