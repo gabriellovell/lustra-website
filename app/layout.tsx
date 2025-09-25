@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Lustra - AI Dating Profile Optimizer",
-  description: "Transform your dating profile with AI-powered optimization. Get more matches on dating apps with personalized suggestions for photos, bio, and messaging.",
+  title: "Lustra AI — Optimize Your Dating Profile with AI",
+  description: "Get more matches with Lustra AI. Improve your photos, bios, and openers. Free plan + Pro at $9.99/month.",
 };
 
 export default function RootLayout({
