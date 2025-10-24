@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
@@ -22,8 +23,15 @@ export default function Home() {
       {/* Header */}
       <header className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg"></div>
+          <div className="flex items-center space-x-3">
+            <Image
+              src="/lustra-logo.svg"
+              alt="Lustra AI logo"
+              width={32}
+              height={32}
+              priority
+              className="h-8 w-8"
+            />
             <span className="text-xl font-bold text-gray-900">Lustra AI</span>
           </div>
           <div className="hidden md:flex items-center space-x-8">
@@ -131,7 +139,13 @@ export default function Home() {
               <div className="relative">
                 <div className="w-72 h-[500px] bg-gradient-to-b from-gray-900 to-gray-700 rounded-[3rem] shadow-2xl flex items-center justify-center">
                   <div className="text-white text-center p-8">
-                    <div className="w-20 h-20 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl mx-auto mb-4"></div>
+                    <Image
+                      src="/lustra-logo.svg"
+                      alt="Lustra AI app icon"
+                      width={80}
+                      height={80}
+                      className="mx-auto mb-4 h-20 w-20"
+                    />
                     <p className="text-lg font-semibold mb-2">Lustra AI</p>
                     <p className="text-sm opacity-75">App Screenshot</p>
                   </div>
