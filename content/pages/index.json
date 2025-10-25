@@ -1,0 +1,94 @@
+{
+  "model": "LandingPage",
+  "slug": "index",
+  "title": "Lustra AI — Optimize Your Dating Profile with AI",
+  "description": "Get more matches with Lustra AI. Improve your photos, bios, and openers. Free plan + Pro at $9.99/month.",
+  "header": {
+    "logoText": "Lustra AI",
+    "navItems": [
+      { "label": "Why Lustra", "targetId": "why-lustra" },
+      { "label": "Features", "targetId": "features" },
+      { "label": "Pricing", "targetId": "pricing" },
+      { "label": "Contact", "targetId": "contact" }
+    ]
+  },
+  "hero": {
+    "heading": "Optimize Your Dating Profile with AI",
+    "highlight": "Turn more swipes into matches.",
+    "description": "Lustra AI helps you stand out on dating apps with smarter bios, better photos, and conversation starters that work.",
+    "primaryActions": [
+      { "label": "App Store → Download", "href": "#", "icon": "appStore" },
+      { "label": "Google Play → Download", "href": "#", "icon": "googlePlay" }
+    ],
+    "secondaryAction": { "label": "Whop → Join as Creator", "href": "#" },
+    "phonePlaceholder": {
+      "label": "Lustra AI",
+      "caption": "App Screenshot"
+    }
+  },
+  "whyLustra": {
+    "title": "Why Lustra?",
+    "items": [
+      { "title": "More matches, faster.", "icon": "bolt" },
+      { "title": "Smart insights on what works.", "icon": "spark" },
+      { "title": "Built with privacy first.", "icon": "shield" }
+    ]
+  },
+  "features": {
+    "title": "Features",
+    "items": [
+      {
+        "title": "Bio Generator",
+        "description": "AI-crafted bios that match your style.",
+        "icon": "edit"
+      },
+      {
+        "title": "Photo Analyzer",
+        "description": "Choose your best photos with data-driven feedback.",
+        "icon": "photo"
+      },
+      {
+        "title": "Chat Helper",
+        "description": "Get help starting and keeping conversations flowing.",
+        "icon": "chat"
+      }
+    ],
+    "cta": { "label": "Download Lustra AI", "href": "#" }
+  },
+  "referral": {
+    "title": "Referral Program",
+    "description": "Invite 3 friends → Get 1 free week of Lustra Pro (up to 4 weeks/month).",
+    "buttonLabel": "Learn More"
+  },
+  "creators": {
+    "title": "For Creators",
+    "description": "Earn money by sharing Lustra with your audience.",
+    "buttonLabel": "Join as Creator on Whop",
+    "buttonHref": "#"
+  },
+  "testimonial": {
+    "quote": "Lustra AI helped me land more matches in a week than the last three months.",
+    "attribution": "Beta tester"
+  },
+  "pricing": {
+    "title": "Simple Pricing",
+    "subtitle": "Free plan available. Pro only $9.99/month.",
+    "ctaLabel": "See Pricing Details",
+    "ctaHref": "#"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "description": "Have questions? We'd love to hear from you.",
+    "ctaLabel": "Email Support",
+    "email": "support@lustraai.com"
+  },
+  "footer": {
+    "logoText": "Lustra AI",
+    "links": [
+      { "label": "Privacy", "href": "/privacy", "type": "internal" },
+      { "label": "Terms", "href": "/terms", "type": "internal" },
+      { "label": "Contact", "href": "mailto:support@lustraai.com", "type": "external" }
+    ],
+    "legalEntity": "QUANTUM TECH FINANCIAL LLC"
+  }
+}
