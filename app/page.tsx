@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -111,9 +111,15 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-purple-50 to-white">
+    <div
+      className="min-h-screen bg-gradient-to-b from-purple-50 to-white"
+      data-sb-object-id={`landing-page:${pageContent.slug}`}
+    >
       {/* Header */}
-      <header className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
+      <header
+        className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50"
+        data-sb-object-id="header"
+      >
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <Image
@@ -124,16 +130,19 @@ export default function Home() {
               priority
               className="h-8 w-8"
             />
-            <span className="text-xl font-bold text-gray-900">{header.logoText}</span>
+            <span className="text-xl font-bold text-gray-900" data-sb-field-path="logoText">
+              {header.logoText}
+            </span>
           </div>
           <div className="hidden md:flex items-center space-x-8">
-            {header.navItems.map((item) => (
+            {header.navItems.map((item, index) => (
               <button
                 key={item.targetId}
                 onClick={() => scrollToSection(item.targetId)}
                 className="text-gray-700 hover:text-purple-600 transition-colors"
+                data-sb-object-id={`header.navItems.${index}`}
               >
-                {item.label}
+                <span data-sb-field-path="label">{item.label}</span>
               </button>
             ))}
           </div>
@@ -155,13 +164,14 @@ export default function Home() {
         {isMobileMenuOpen && (
           <div className="md:hidden bg-white border-b border-gray-200">
             <div className="px-4 py-2 space-y-2">
-              {header.navItems.map((item) => (
+              {header.navItems.map((item, index) => (
                 <button
                   key={item.targetId}
                   onClick={() => scrollToSection(item.targetId)}
                   className="block w-full text-left px-3 py-2 text-gray-700 hover:text-purple-600 hover:bg-gray-50 rounded-md transition-colors"
+                  data-sb-object-id={`header.navItems.${index}`}
                 >
-                  {item.label}
+                  <span data-sb-field-path="label">{item.label}</span>
                 </button>
               ))}
             </div>
@@ -170,20 +180,30 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="pt-24 pb-20 px-4 sm:px-6 lg:px-8">
+      <section className="pt-24 pb-20 px-4 sm:px-6 lg:px-8" data-sb-object-id="hero">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Text Content - Left Side */}
             <div className="text-center lg:text-left">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">{hero.heading}</h1>
+              <h1
+                className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6"
+                data-sb-field-path="heading"
+              >
+                {hero.heading}
+              </h1>
               <div className="mb-4">
-                <p className="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
+                <p
+                  className="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600"
+                  data-sb-field-path="highlight"
+                >
                   {hero.highlight}
                 </p>
               </div>
-              <p className="text-xl text-gray-600 mb-8">{hero.description}</p>
+              <p className="text-xl text-gray-600 mb-8" data-sb-field-path="description">
+                {hero.description}
+              </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-4">
-                {hero.primaryActions.map((action) => (
+                {hero.primaryActions.map((action, index) => (
                   <a
                     key={action.label}
                     href={action.href}
@@ -192,9 +212,10 @@ export default function Home() {
                         ? "bg-black text-white hover:bg-gray-800"
                         : "bg-green-600 text-white hover:bg-green-700"
                     }`}
+                    data-sb-object-id={`hero.primaryActions.${index}`}
                   >
                     <HeroActionIcon icon={action.icon} />
-                    {action.label}
+                    <span data-sb-field-path="label">{action.label}</span>
                   </a>
                 ))}
               </div>
@@ -203,8 +224,9 @@ export default function Home() {
                   <a
                     href={hero.secondaryAction.href}
                     className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl font-semibold hover:from-purple-700 hover:to-pink-700 transition-all"
+                    data-sb-object-id="hero.secondaryAction"
                   >
-                    {hero.secondaryAction.label}
+                    <span data-sb-field-path="label">{hero.secondaryAction.label}</span>
                   </a>
                 </div>
               )}
@@ -212,7 +234,7 @@ export default function Home() {
 
             {/* App Placeholder Image - Right Side */}
             <div className="flex justify-center lg:justify-end">
-              <div className="relative">
+              <div className="relative" data-sb-object-id="hero.phonePlaceholder">
                 <div className="w-72 h-[500px] bg-gradient-to-b from-gray-900 to-gray-700 rounded-[3rem] shadow-2xl flex items-center justify-center">
                   <div className="text-white text-center p-8">
                     <Image
@@ -222,8 +244,12 @@ export default function Home() {
                       height={80}
                       className="mx-auto mb-4 h-20 w-20"
                     />
-                    <p className="text-lg font-semibold mb-2">{hero.phonePlaceholder.label}</p>
-                    <p className="text-sm opacity-75">{hero.phonePlaceholder.caption}</p>
+                    <p className="text-lg font-semibold mb-2" data-sb-field-path="label">
+                      {hero.phonePlaceholder.label}
+                    </p>
+                    <p className="text-sm opacity-75" data-sb-field-path="caption">
+                      {hero.phonePlaceholder.caption}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -233,18 +259,22 @@ export default function Home() {
       </section>
 
       {/* Why Lustra Section */}
-      <section id="why-lustra" className="py-20 bg-white scroll-mt-16">
+      <section id="why-lustra" className="py-20 bg-white scroll-mt-16" data-sb-object-id="whyLustra">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8">{whyLustra.title}</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8" data-sb-field-path="title">
+              {whyLustra.title}
+            </h2>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            {whyLustra.items.map((item) => (
-              <div key={item.title} className="text-center p-6">
+            {whyLustra.items.map((item, index) => (
+              <div key={item.title} className="text-center p-6" data-sb-object-id={`whyLustra.items.${index}`}>
                 <div className={`w-16 h-16 ${whyBackgroundClassMap[item.icon]} rounded-full flex items-center justify-center mx-auto mb-4`}>
                   <WhyIcon icon={item.icon} />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{item.title}</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2" data-sb-field-path="title">
+                  {item.title}
+                </h3>
               </div>
             ))}
           </div>
@@ -252,19 +282,25 @@ export default function Home() {
       </section>
 
       {/* Features Teaser Section */}
-      <section id="features" className="py-20 bg-gradient-to-b from-gray-50 to-white scroll-mt-16">
+      <section id="features" className="py-20 bg-gradient-to-b from-gray-50 to-white scroll-mt-16" data-sb-object-id="features">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">{features.title}</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4" data-sb-field-path="title">
+              {features.title}
+            </h2>
           </div>
           <div className="grid lg:grid-cols-3 gap-8">
-            {features.items.map((feature) => (
-              <div key={feature.title} className="bg-white p-8 rounded-2xl shadow-lg">
+            {features.items.map((feature, index) => (
+              <div key={feature.title} className="bg-white p-8 rounded-2xl shadow-lg" data-sb-object-id={`features.items.${index}`}>
                 <div className={`w-12 h-12 ${featureBackgroundClassMap[feature.icon]} rounded-lg flex items-center justify-center mb-4`}>
                   <FeatureIcon icon={feature.icon} />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
-                <p className="text-gray-600 mb-4">{feature.description}</p>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2" data-sb-field-path="title">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600 mb-4" data-sb-field-path="description">
+                  {feature.description}
+                </p>
               </div>
             ))}
           </div>
@@ -273,8 +309,9 @@ export default function Home() {
               <a
                 href={features.cta.href}
                 className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl font-semibold hover:from-purple-700 hover:to-pink-700 transition-all"
+                data-sb-object-id="features.cta"
               >
-                {features.cta.label}
+                <span data-sb-field-path="label">{features.cta.label}</span>
               </a>
             </div>
           )}
@@ -282,12 +319,19 @@ export default function Home() {
       </section>
 
       {/* Referral Teaser Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white" data-sb-object-id="referral">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl p-12 text-white text-center">
-            <h2 className="text-3xl font-bold mb-4">{referral.title}</h2>
-            <p className="text-xl mb-8">{referral.description}</p>
-            <button className="bg-white text-purple-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-colors">
+            <h2 className="text-3xl font-bold mb-4" data-sb-field-path="title">
+              {referral.title}
+            </h2>
+            <p className="text-xl mb-8" data-sb-field-path="description">
+              {referral.description}
+            </p>
+            <button
+              className="bg-white text-purple-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-colors"
+              data-sb-field-path="buttonLabel"
+            >
               {referral.buttonLabel}
             </button>
           </div>
@@ -295,14 +339,19 @@ export default function Home() {
       </section>
 
       {/* Creator Teaser Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50" data-sb-object-id="creators">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">{creators.title}</h2>
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">{creators.description}</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4" data-sb-field-path="title">
+              {creators.title}
+            </h2>
+            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto" data-sb-field-path="description">
+              {creators.description}
+            </p>
             <a
               href={creators.buttonHref}
               className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl font-semibold hover:from-purple-700 hover:to-pink-700 transition-all"
+              data-sb-field-path="buttonLabel"
             >
               {creators.buttonLabel}
             </a>
@@ -311,27 +360,39 @@ export default function Home() {
       </section>
 
       {/* Social Proof Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white" data-sb-object-id="testimonial">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="bg-gray-50 rounded-2xl p-8">
               <svg className="w-12 h-12 text-yellow-400 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden>
                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
               </svg>
-              <p className="text-xl text-gray-700 italic mb-4">&ldquo;{testimonial.quote}&rdquo;</p>
-              <p className="text-gray-600">&mdash; {testimonial.attribution}</p>
+              <p className="text-xl text-gray-700 italic mb-4" data-sb-field-path="quote">
+                &ldquo;{testimonial.quote}&rdquo;
+              </p>
+              <p className="text-gray-600" data-sb-field-path="attribution">
+                &mdash; {testimonial.attribution}
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Pricing Teaser Section */}
-      <section id="pricing" className="py-20 bg-gradient-to-b from-gray-50 to-white scroll-mt-16">
+      <section id="pricing" className="py-20 bg-gradient-to-b from-gray-50 to-white scroll-mt-16" data-sb-object-id="pricing">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">{pricing.title}</h2>
-            <p className="text-xl text-gray-600 mb-8">{pricing.subtitle}</p>
-            <a href={pricing.ctaHref} className="inline-flex items-center text-purple-600 hover:text-purple-700 font-semibold">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4" data-sb-field-path="title">
+              {pricing.title}
+            </h2>
+            <p className="text-xl text-gray-600 mb-8" data-sb-field-path="subtitle">
+              {pricing.subtitle}
+            </p>
+            <a
+              href={pricing.ctaHref}
+              className="inline-flex items-center text-purple-600 hover:text-purple-700 font-semibold"
+              data-sb-field-path="ctaLabel"
+            >
               {pricing.ctaLabel}
               <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -342,16 +403,21 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-white scroll-mt-16">
+      <section id="contact" className="py-20 bg-white scroll-mt-16" data-sb-object-id="contact">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">{contact.title}</h2>
-            <p className="text-xl text-gray-600">{contact.description}</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4" data-sb-field-path="title">
+              {contact.title}
+            </h2>
+            <p className="text-xl text-gray-600" data-sb-field-path="description">
+              {contact.description}
+            </p>
           </div>
           <div className="text-center">
             <a
               href={`mailto:${contact.email}`}
               className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl font-semibold hover:from-purple-700 hover:to-pink-700 transition-all"
+              data-sb-field-path="ctaLabel"
             >
               {contact.ctaLabel}
             </a>
@@ -360,35 +426,41 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className="bg-gray-900 text-white py-12" data-sb-object-id="footer">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-4">
             <div className="flex items-center justify-center space-x-2 mb-4">
               <div className="w-8 h-8 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg" aria-hidden />
-              <span className="text-xl font-bold">{footer.logoText}</span>
+              <span className="text-xl font-bold" data-sb-field-path="logoText">
+                {footer.logoText}
+              </span>
             </div>
             <div className="flex flex-wrap justify-center gap-4 text-gray-400">
               {footer.links.map((link, index) => (
-                <Fragment key={link.label}>
+                <span
+                  key={link.label}
+                  className="flex items-center space-x-2"
+                  data-sb-object-id={`footer.links.${index}`}
+                >
                   {index > 0 && (
                     <span aria-hidden className="select-none">
                       •
                     </span>
                   )}
                   {link.type === "internal" ? (
-                    <Link href={link.href} className="hover:text-white transition-colors">
+                    <Link href={link.href} className="hover:text-white transition-colors" data-sb-field-path="label">
                       {link.label}
                     </Link>
                   ) : (
-                    <a href={link.href} className="hover:text-white transition-colors">
+                    <a href={link.href} className="hover:text-white transition-colors" data-sb-field-path="label">
                       {link.label}
                     </a>
                   )}
-                </Fragment>
+                </span>
               ))}
             </div>
             <div className="text-gray-400 pt-4">
-              <p>&copy; {new Date().getFullYear()} {footer.legalEntity}</p>
+              <p data-sb-field-path="legalEntity">&copy; {new Date().getFullYear()} {footer.legalEntity}</p>
             </div>
           </div>
         </div>
