@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@stackbit/cms-git": "^0.7.9",
+    "@stackbit/cms-git": "0.7.8",
     "@stackbit/types": "^1.0.6",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
