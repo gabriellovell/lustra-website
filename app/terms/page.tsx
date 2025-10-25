@@ -1,8 +1,14 @@
 import Link from "next/link";
 
-import privacyContent from "@/content/pages/privacy.json";
+import termsContent from "@/content/pages/terms.json";
 
-type LegalPageContent = typeof privacyContent;
+type TermsContent = typeof termsContent;
+
+type Section = TermsContent["sections"][number];
+
+type SectionProps = {
+  section: Section;
+};
 
 function SectionHeading({ title }: { title: string }) {
   return <h2 className="text-2xl font-semibold text-gray-900 mb-4">{title}</h2>;
@@ -18,29 +24,18 @@ function List({ items }: { items: string[] }) {
   );
 }
 
-function LegalSection({ section }: { section: LegalPageContent["sections"][number] }) {
+function TermsSection({ section }: SectionProps) {
   return (
     <section>
       <SectionHeading title={section.title} />
       {section.body && <p className="text-gray-700 leading-relaxed mb-4">{section.body}</p>}
       {section.items && section.items.length > 0 && <List items={section.items} />}
-      {section.subsections && section.subsections.length > 0 && (
-        <div className="space-y-6">
-          {section.subsections.map((subsection) => (
-            <div key={subsection.title}>
-              <h3 className="text-xl font-medium text-gray-900 mb-3">{subsection.title}</h3>
-              {subsection.body && <p className="text-gray-700 leading-relaxed mb-3">{subsection.body}</p>}
-              {subsection.items && subsection.items.length > 0 && <List items={subsection.items} />}
-            </div>
-          ))}
-        </div>
-      )}
     </section>
   );
 }
 
-export default function Privacy() {
-  const { title, lastUpdated, intro, sections, contact } = privacyContent;
+export default function Terms() {
+  const { title, lastUpdated, intro, sections } = termsContent;
 
   return (
     <div className="min-h-screen bg-white">
@@ -69,25 +64,8 @@ export default function Privacy() {
 
           <div className="space-y-8">
             {sections.map((section) => (
-              <LegalSection key={section.title} section={section} />
+              <TermsSection key={section.title} section={section} />
             ))}
-
-            <section>
-              <SectionHeading title="Contact Us" />
-              <p className="text-gray-700 leading-relaxed mb-4">
-                If you have questions about this Privacy Policy or our privacy practices, please contact us:
-              </p>
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <p className="text-gray-700 mb-2">
-                  <strong>Email:</strong> {contact.email}
-                </p>
-                {contact.addressLines.map((line) => (
-                  <p key={line} className="text-gray-700">
-                    {line}
-                  </p>
-                ))}
-              </div>
-            </section>
           </div>
         </div>
       </div>

@@ -1,0 +1,106 @@
+{
+  "model": "LegalPage",
+  "slug": "privacy",
+  "title": "Privacy Policy",
+  "lastUpdated": "December 2024",
+  "intro": "At Lustra, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application and services.",
+  "sections": [
+    {
+      "title": "Introduction",
+      "body": "We are committed to protecting your personal information and your right to privacy."
+    },
+    {
+      "title": "Information We Collect",
+      "subsections": [
+        {
+          "title": "Personal Information",
+          "items": [
+            "Profile photos you upload for analysis",
+            "Dating profile text and bio content",
+            "Email address for account creation and communication",
+            "Usage data and app interaction patterns",
+            "Device information and technical data"
+          ]
+        },
+        {
+          "title": "Automatically Collected Information",
+          "items": [
+            "App usage statistics and analytics",
+            "Device identifiers and operating system information",
+            "IP address and location data (if permitted)",
+            "Crash reports and performance data"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "How We Use Your Information",
+      "items": [
+        "To provide AI-powered profile optimization and recommendations",
+        "To analyze photos and provide improvement suggestions",
+        "To generate personalized bio and messaging recommendations",
+        "To improve our app functionality and user experience",
+        "To provide customer support and respond to inquiries",
+        "To send important updates and notifications about our services",
+        "To prevent fraud and ensure app security"
+      ]
+    },
+    {
+      "title": "Data Security",
+      "body": "We implement industry-standard security measures to protect your personal information:",
+      "items": [
+        "End-to-end encryption for all data transmission",
+        "Secure cloud storage with restricted access",
+        "Regular security audits and vulnerability assessments",
+        "Multi-factor authentication for our internal systems",
+        "Automatic data anonymization for research purposes"
+      ]
+    },
+    {
+      "title": "Information Sharing",
+      "body": "We do not sell, trade, or otherwise transfer your personal information to third parties except in the following circumstances:",
+      "items": [
+        "With your explicit consent",
+        "To trusted service providers who assist in app operations (under strict confidentiality agreements)",
+        "When required by law or to protect our rights and safety",
+        "In connection with a business transaction (merger, acquisition, etc.)"
+      ]
+    },
+    {
+      "title": "Data Retention",
+      "body": "We retain your personal information only as long as necessary to provide our services and fulfill the purposes outlined in this policy. You can request deletion of your account and associated data at any time through the app settings or by contacting our support team."
+    },
+    {
+      "title": "Your Rights",
+      "body": "Depending on your location, you may have the following rights regarding your personal information:",
+      "items": [
+        "Right to access your personal data",
+        "Right to correct or update inaccurate information",
+        "Right to delete your personal data",
+        "Right to restrict processing of your data",
+        "Right to data portability",
+        "Right to withdraw consent at any time"
+      ]
+    },
+    {
+      "title": "Children's Privacy",
+      "body": "Lustra is intended for users aged 18 and older. We do not knowingly collect personal information from children under 18. If we discover that a child under 18 has provided us with personal information, we will promptly delete such information."
+    },
+    {
+      "title": "International Users",
+      "body": "If you are using Lustra from outside the United States, please note that your information may be transferred to, stored, and processed in the United States. By using our services, you consent to this transfer and processing."
+    },
+    {
+      "title": "Changes to This Policy",
+      "body": "We may update this Privacy Policy periodically to reflect changes in our practices or applicable law. We will notify you of any material changes through the app or by email. Your continued use of Lustra after such modifications constitutes acceptance of the updated policy."
+    }
+  ],
+  "contact": {
+    "email": "privacy@joinlustra.com",
+    "addressLines": [
+      "Lustra Privacy Team",
+      "123 Tech Street",
+      "San Francisco, CA 94105"
+    ]
+  }
+}
