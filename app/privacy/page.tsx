@@ -1,8 +1,32 @@
 import Link from "next/link";
 
-import privacyContent from "@/content/pages/privacy.json";
+import rawPrivacyContent from "@/content/pages/privacy.json";
 
-type LegalPageContent = typeof privacyContent;
+type LegalSubsection = {
+  title: string;
+  body?: string;
+  items?: string[];
+};
+
+type LegalSection = {
+  title: string;
+  body?: string;
+  items?: string[];
+  subsections?: LegalSubsection[];
+};
+
+type LegalPageContent = {
+  title: string;
+  lastUpdated: string;
+  intro: string;
+  sections: LegalSection[];
+  contact: {
+    email: string;
+    addressLines: string[];
+  };
+};
+
+const privacyContent = rawPrivacyContent as LegalPageContent;
 
 function SectionHeading({ title }: { title: string }) {
   return <h2 className="text-2xl font-semibold text-gray-900 mb-4">{title}</h2>;
