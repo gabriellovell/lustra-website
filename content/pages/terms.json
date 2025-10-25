@@ -1,0 +1,59 @@
+{
+  "model": "LegalPage",
+  "slug": "terms",
+  "title": "Terms of Service",
+  "lastUpdated": "December 2024",
+  "intro": "These Terms of Service (\"Terms\") govern your use of the Lustra mobile application and related services.",
+  "sections": [
+    {
+      "title": "Acceptance of Terms",
+      "body": "By accessing or using Lustra, you agree to be bound by these Terms and our Privacy Policy. If you do not agree, you may not use the service."
+    },
+    {
+      "title": "Use of the Service",
+      "items": [
+        "You must be at least 18 years old to use Lustra.",
+        "You agree not to misuse the app or interfere with other users' enjoyment.",
+        "You are responsible for maintaining the confidentiality of your account credentials."
+      ]
+    },
+    {
+      "title": "User Content",
+      "body": "You retain ownership of the content you upload to Lustra, but grant us a limited license to use it to operate and improve the service.",
+      "items": [
+        "You represent that you have the rights to the content you upload.",
+        "You agree that we may process your content to provide AI-powered recommendations.",
+        "We may remove content that violates these Terms or applicable law."
+      ]
+    },
+    {
+      "title": "Subscriptions and Billing",
+      "body": "Certain features of Lustra are offered through paid subscriptions. By purchasing a subscription, you authorize us to charge your selected payment method.",
+      "items": [
+        "Subscription fees are billed in advance on a recurring basis.",
+        "You may cancel your subscription at any time through the app store where you purchased it.",
+        "Fees paid are non-refundable except where required by law."
+      ]
+    },
+    {
+      "title": "Termination",
+      "body": "We may suspend or terminate access to Lustra if you violate these Terms or engage in abusive behavior. You may discontinue use of the service at any time."
+    },
+    {
+      "title": "Disclaimer of Warranties",
+      "body": "Lustra is provided on an \"as is\" and \"as available\" basis without warranties of any kind, either express or implied."
+    },
+    {
+      "title": "Limitation of Liability",
+      "body": "To the fullest extent permitted by law, Lustra and its affiliates shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of the service."
+    },
+    {
+      "title": "Governing Law",
+      "body": "These Terms are governed by the laws of the State of California, without regard to its conflict of law principles."
+    },
+    {
+      "title": "Contact",
+      "body": "If you have questions about these Terms, please contact us at support@lustraai.com."
+    }
+  ]
+}
