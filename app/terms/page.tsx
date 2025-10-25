@@ -8,37 +8,53 @@ type Section = TermsContent["sections"][number];
 
 type SectionProps = {
   section: Section;
+  index: number;
 };
 
-function SectionHeading({ title }: { title: string }) {
-  return <h2 className="text-2xl font-semibold text-gray-900 mb-4">{title}</h2>;
+function SectionHeading({ title, fieldPath }: { title: string; fieldPath?: string }) {
+  return (
+    <h2
+      className="text-2xl font-semibold text-gray-900 mb-4"
+      data-sb-field-path={fieldPath}
+    >
+      {title}
+    </h2>
+  );
 }
 
-function List({ items }: { items: string[] }) {
+function List({ items, fieldPathPrefix }: { items: string[]; fieldPathPrefix: string }) {
   return (
     <ul className="list-disc list-inside text-gray-700 space-y-2">
-      {items.map((item) => (
-        <li key={item}>{item}</li>
+      {items.map((item, index) => (
+        <li key={`${item}-${index}`} data-sb-field-path={`${fieldPathPrefix}.${index}`}>
+          {item}
+        </li>
       ))}
     </ul>
   );
 }
 
-function TermsSection({ section }: SectionProps) {
+function TermsSection({ section, index }: SectionProps) {
   return (
-    <section>
-      <SectionHeading title={section.title} />
-      {section.body && <p className="text-gray-700 leading-relaxed mb-4">{section.body}</p>}
-      {section.items && section.items.length > 0 && <List items={section.items} />}
+    <section data-sb-object-id={`sections.${index}`}>
+      <SectionHeading title={section.title} fieldPath="title" />
+      {section.body && (
+        <p className="text-gray-700 leading-relaxed mb-4" data-sb-field-path="body">
+          {section.body}
+        </p>
+      )}
+      {section.items && section.items.length > 0 && (
+        <List items={section.items} fieldPathPrefix="items" />
+      )}
     </section>
   );
 }
 
 export default function Terms() {
-  const { title, lastUpdated, intro, sections } = termsContent;
+  const { title, lastUpdated, intro, sections, slug } = termsContent;
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white" data-sb-object-id={`legal-page:${slug}`}>
       {/* Header */}
       <header className="border-b border-gray-200">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
@@ -52,19 +68,24 @@ export default function Terms() {
         </nav>
       </header>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" data-sb-object-id="content">
         <div className="prose prose-lg max-w-none">
-          <h1 className="text-4xl font-bold text-gray-900 mb-8">{title}</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-8" data-sb-field-path="title">
+            {title}
+          </h1>
 
           <p className="text-gray-600 mb-8">
-            <strong>Last Updated:</strong> {lastUpdated}
+            <strong>Last Updated:</strong>{" "}
+            <span data-sb-field-path="lastUpdated">{lastUpdated}</span>
           </p>
 
-          <p className="text-gray-700 leading-relaxed mb-8">{intro}</p>
+          <p className="text-gray-700 leading-relaxed mb-8" data-sb-field-path="intro">
+            {intro}
+          </p>
 
           <div className="space-y-8">
-            {sections.map((section) => (
-              <TermsSection key={section.title} section={section} />
+            {sections.map((section, index) => (
+              <TermsSection key={section.title} section={section} index={index} />
             ))}
           </div>
         </div>
