@@ -122,13 +122,13 @@ export default function Home() {
       >
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <Image
-              src="/lustra-logo.svg"
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F3baef651a3394f3b8ece804fec9446e0%2F5bb0345ecabc49f2ad8b92ca329e7762?format=webp&width=800"
               alt={`${header.logoText} logo`}
               width={32}
               height={32}
-              priority
-              className="h-8 w-8"
+              decoding="async"
+              className="h-8 w-8 rounded"
             />
             <span className="text-xl font-bold text-gray-900" data-sb-field-path="logoText">
               {header.logoText}
@@ -136,14 +136,20 @@ export default function Home() {
           </div>
           <div className="hidden md:flex items-center space-x-8">
             {header.navItems.map((item, index) => (
-              <button
-                key={item.targetId}
-                onClick={() => scrollToSection(item.targetId)}
-                className="text-gray-700 hover:text-purple-600 transition-colors"
-                data-sb-object-id={`header.navItems.${index}`}
-              >
-                <span data-sb-field-path="label">{item.label}</span>
-              </button>
+              item.targetId && item.targetId.startsWith("/") ? (
+                <Link key={item.targetId} href={item.targetId} className="text-gray-700 hover:text-purple-600 transition-colors" data-sb-object-id={`header.navItems.${index}`}>
+                  <span data-sb-field-path="label">{item.label}</span>
+                </Link>
+              ) : (
+                <button
+                  key={item.targetId}
+                  onClick={() => scrollToSection(item.targetId)}
+                  className="text-gray-700 hover:text-purple-600 transition-colors"
+                  data-sb-object-id={`header.navItems.${index}`}
+                >
+                  <span data-sb-field-path="label">{item.label}</span>
+                </button>
+              )
             ))}
           </div>
           <button
@@ -165,14 +171,20 @@ export default function Home() {
           <div className="md:hidden bg-white border-b border-gray-200">
             <div className="px-4 py-2 space-y-2">
               {header.navItems.map((item, index) => (
-                <button
-                  key={item.targetId}
-                  onClick={() => scrollToSection(item.targetId)}
-                  className="block w-full text-left px-3 py-2 text-gray-700 hover:text-purple-600 hover:bg-gray-50 rounded-md transition-colors"
-                  data-sb-object-id={`header.navItems.${index}`}
-                >
-                  <span data-sb-field-path="label">{item.label}</span>
-                </button>
+                item.targetId && item.targetId.startsWith("/") ? (
+                  <Link key={item.targetId} href={item.targetId} className="block w-full text-left px-3 py-2 text-gray-700 hover:text-purple-600 hover:bg-gray-50 rounded-md transition-colors" data-sb-object-id={`header.navItems.${index}`}>
+                    <span data-sb-field-path="label">{item.label}</span>
+                  </Link>
+                ) : (
+                  <button
+                    key={item.targetId}
+                    onClick={() => scrollToSection(item.targetId)}
+                    className="block w-full text-left px-3 py-2 text-gray-700 hover:text-purple-600 hover:bg-gray-50 rounded-md transition-colors"
+                    data-sb-object-id={`header.navItems.${index}`}
+                  >
+                    <span data-sb-field-path="label">{item.label}</span>
+                  </button>
+                )
               ))}
             </div>
           </div>
@@ -232,28 +244,24 @@ export default function Home() {
               )}
             </div>
 
-            {/* App Placeholder Image - Right Side */}
+            {/* Right-side hero image */}
             <div className="flex justify-center lg:justify-end">
               <div className="relative" data-sb-object-id="hero.phonePlaceholder">
-                <div className="w-72 h-[500px] bg-gradient-to-b from-gray-900 to-gray-700 rounded-[3rem] shadow-2xl flex items-center justify-center">
-                  <div className="text-white text-center p-8">
-                    <Image
-                      src="/lustra-logo.svg"
-                      alt={`${hero.phonePlaceholder.label} app icon`}
-                      width={80}
-                      height={80}
-                      className="mx-auto mb-4 h-20 w-20"
+                <div className="w-full max-w-[420px] h-auto flex items-center justify-center">
+                  <div className="relative w-full h-[60vh] max-h-[660px] overflow-hidden rounded-2xl shadow-lg">
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets%2F3baef651a3394f3b8ece804fec9446e0%2F75625ac5ef79447f98e5b53d3e5adaaf?format=webp&width=1200"
+                      alt={`${hero.phonePlaceholder.label} — ${hero.phonePlaceholder.caption}`}
+                      className="w-full h-full object-cover"
+                      loading="eager"
+                      decoding="async"
                     />
-                    <p className="text-lg font-semibold mb-2" data-sb-field-path="label">
-                      {hero.phonePlaceholder.label}
-                    </p>
-                    <p className="text-sm opacity-75" data-sb-field-path="caption">
-                      {hero.phonePlaceholder.caption}
-                    </p>
+                    <div className="pointer-events-none absolute inset-0 bg-black/10" aria-hidden />
                   </div>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </section>

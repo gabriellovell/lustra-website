@@ -1,0 +1,20 @@
+{
+  "posts": [
+    {
+      "slug": "how-to-optimize-your-dating-profile",
+      "title": "How to Optimize Your Dating Profile for Better Matches",
+      "description": "Simple, actionable tips to make your profile stand out and get more matches.",
+      "date": "2025-01-10",
+      "coverImage": "/lustra-hero.jpg",
+      "content": "<p>Improving your dating profile doesn't need to be complicated. Start with clear, well-lit photos, a concise bio that shows personality, and highlight your interests. Use the following checklist to get started:</p><ul><li>Choose 3-5 high-quality photos showing you in different settings.</li><li>Keep your bio specific and avoid clichés.</li><li>Mention activities you enjoy to give people conversation hooks.</li></ul><p>Consistent testing and small tweaks can significantly increase match rates over time.</p>"
+    },
+    {
+      "slug": "photo-tips-for-profile-pictures",
+      "title": "Photo Tips That Actually Work",
+      "description": "How to pick and edit photos that improve your chances.",
+      "date": "2025-02-05",
+      "coverImage": "/lustra-photo-tips.jpg",
+      "content": "<p>Photos are the first thing people notice. Here are practical tips:</p><ol><li>Use natural light whenever possible.</li><li>Show your face clearly—avoid large sunglasses in your main photo.</li><li>Include at least one photo of you doing an activity you love.</li></ol><p>Try A/B testing different photos to see what works best.</p>"
+    }
+  ]
+}

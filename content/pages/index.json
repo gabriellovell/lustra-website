@@ -9,6 +9,7 @@
       { "label": "Why Lustra", "targetId": "why-lustra" },
       { "label": "Features", "targetId": "features" },
       { "label": "Pricing", "targetId": "pricing" },
+      { "label": "Blog", "targetId": "/blog" },
       { "label": "Contact", "targetId": "contact" }
     ]
   },
