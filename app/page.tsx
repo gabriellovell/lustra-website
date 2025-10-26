@@ -136,14 +136,20 @@ export default function Home() {
           </div>
           <div className="hidden md:flex items-center space-x-8">
             {header.navItems.map((item, index) => (
-              <button
-                key={item.targetId}
-                onClick={() => scrollToSection(item.targetId)}
-                className="text-gray-700 hover:text-purple-600 transition-colors"
-                data-sb-object-id={`header.navItems.${index}`}
-              >
-                <span data-sb-field-path="label">{item.label}</span>
-              </button>
+              item.targetId && item.targetId.startsWith("/") ? (
+                <Link key={item.targetId} href={item.targetId} className="text-gray-700 hover:text-purple-600 transition-colors" data-sb-object-id={`header.navItems.${index}`}>
+                  <span data-sb-field-path="label">{item.label}</span>
+                </Link>
+              ) : (
+                <button
+                  key={item.targetId}
+                  onClick={() => scrollToSection(item.targetId)}
+                  className="text-gray-700 hover:text-purple-600 transition-colors"
+                  data-sb-object-id={`header.navItems.${index}`}
+                >
+                  <span data-sb-field-path="label">{item.label}</span>
+                </button>
+              )
             ))}
           </div>
           <button
