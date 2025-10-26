@@ -171,14 +171,20 @@ export default function Home() {
           <div className="md:hidden bg-white border-b border-gray-200">
             <div className="px-4 py-2 space-y-2">
               {header.navItems.map((item, index) => (
-                <button
-                  key={item.targetId}
-                  onClick={() => scrollToSection(item.targetId)}
-                  className="block w-full text-left px-3 py-2 text-gray-700 hover:text-purple-600 hover:bg-gray-50 rounded-md transition-colors"
-                  data-sb-object-id={`header.navItems.${index}`}
-                >
-                  <span data-sb-field-path="label">{item.label}</span>
-                </button>
+                item.targetId && item.targetId.startsWith("/") ? (
+                  <Link key={item.targetId} href={item.targetId} className="block w-full text-left px-3 py-2 text-gray-700 hover:text-purple-600 hover:bg-gray-50 rounded-md transition-colors" data-sb-object-id={`header.navItems.${index}`}>
+                    <span data-sb-field-path="label">{item.label}</span>
+                  </Link>
+                ) : (
+                  <button
+                    key={item.targetId}
+                    onClick={() => scrollToSection(item.targetId)}
+                    className="block w-full text-left px-3 py-2 text-gray-700 hover:text-purple-600 hover:bg-gray-50 rounded-md transition-colors"
+                    data-sb-object-id={`header.navItems.${index}`}
+                  >
+                    <span data-sb-field-path="label">{item.label}</span>
+                  </button>
+                )
               ))}
             </div>
           </div>
