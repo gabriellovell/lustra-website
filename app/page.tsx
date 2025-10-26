@@ -232,6 +232,24 @@ export default function Home() {
               )}
             </div>
 
+            {/* Right-side hero image */}
+            <div className="flex justify-center lg:justify-end">
+              <div className="relative" data-sb-object-id="hero.phonePlaceholder">
+                <div className="w-72 h-[500px] bg-gradient-to-b from-gray-900 to-gray-700 rounded-[3rem] shadow-2xl flex items-center justify-center">
+                  <div className="relative w-[230px] h-[430px] overflow-hidden rounded-[2.5rem] shadow-xl">
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets%2F3baef651a3394f3b8ece804fec9446e0%2F75625ac5ef79447f98e5b53d3e5adaaf?format=webp&width=800"
+                      alt={`${hero.phonePlaceholder.label} — ${hero.phonePlaceholder.caption}`}
+                      className="w-full h-full object-cover"
+                      loading="eager"
+                      decoding="async"
+                    />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/20" aria-hidden />
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
