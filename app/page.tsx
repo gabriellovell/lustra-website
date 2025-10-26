@@ -247,16 +247,16 @@ export default function Home() {
             {/* Right-side hero image */}
             <div className="flex justify-center lg:justify-end">
               <div className="relative" data-sb-object-id="hero.phonePlaceholder">
-                <div className="w-[320px] sm:w-[360px] md:w-96 lg:w-[420px] h-[520px] sm:h-[560px] md:h-[620px] lg:h-[660px] bg-gradient-to-b from-gray-900 to-gray-700 rounded-[3rem] shadow-2xl flex items-center justify-center">
-                  <div className="relative w-[280px] sm:w-[300px] md:w-[340px] lg:w-[380px] h-[460px] sm:h-[520px] md:h-[600px] lg:h-[620px] overflow-hidden rounded-[2.5rem] shadow-xl">
+                <div className="w-full max-w-[420px] h-auto flex items-center justify-center">
+                  <div className="relative w-full h-[60vh] max-h-[660px] overflow-hidden rounded-2xl shadow-lg">
                     <img
                       src="https://cdn.builder.io/api/v1/image/assets%2F3baef651a3394f3b8ece804fec9446e0%2F75625ac5ef79447f98e5b53d3e5adaaf?format=webp&width=1200"
                       alt={`${hero.phonePlaceholder.label} — ${hero.phonePlaceholder.caption}`}
-                      className="w-full h-full object-contain"
+                      className="w-full h-full object-cover"
                       loading="eager"
                       decoding="async"
                     />
-                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/30" aria-hidden />
+                    <div className="pointer-events-none absolute inset-0 bg-black/10" aria-hidden />
                   </div>
                 </div>
               </div>
