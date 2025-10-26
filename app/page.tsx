@@ -236,11 +236,11 @@ export default function Home() {
             <div className="flex justify-center lg:justify-end">
               <div className="relative" data-sb-object-id="hero.phonePlaceholder">
                 <div className="w-72 h-[500px] bg-gradient-to-b from-gray-900 to-gray-700 rounded-[3rem] shadow-2xl flex items-center justify-center">
-                  <div className="relative w-[250px] h-[460px] overflow-hidden rounded-[2.5rem] ring-1 ring-white/10 shadow-xl">
+                  <div className="relative w-[230px] h-[430px] overflow-hidden rounded-[2.5rem] shadow-xl">
                     <img
                       src="https://cdn.builder.io/api/v1/image/assets%2F3baef651a3394f3b8ece804fec9446e0%2F4b76dc7298dc4d43bd4a465ff10e501f?format=webp&width=800"
                       alt={`${hero.phonePlaceholder.label} — ${hero.phonePlaceholder.caption}`}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transform scale-90"
                       loading="eager"
                       decoding="async"
                     />
