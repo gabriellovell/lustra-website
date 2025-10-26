@@ -236,20 +236,15 @@ export default function Home() {
             <div className="flex justify-center lg:justify-end">
               <div className="relative" data-sb-object-id="hero.phonePlaceholder">
                 <div className="w-72 h-[500px] bg-gradient-to-b from-gray-900 to-gray-700 rounded-[3rem] shadow-2xl flex items-center justify-center">
-                  <div className="text-white text-center p-8">
-                    <Image
-                      src="/lustra-logo.svg"
-                      alt={`${hero.phonePlaceholder.label} app icon`}
-                      width={80}
-                      height={80}
-                      className="mx-auto mb-4 h-20 w-20"
+                  <div className="relative w-[250px] h-[460px] overflow-hidden rounded-[2.5rem] ring-1 ring-white/10 shadow-xl">
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets%2F3baef651a3394f3b8ece804fec9446e0%2F669217bd8a964f3ca30986ca3f609757?format=webp&width=800"
+                      alt={`${hero.phonePlaceholder.label} — ${hero.phonePlaceholder.caption}`}
+                      className="w-full h-full object-cover"
+                      loading="eager"
+                      decoding="async"
                     />
-                    <p className="text-lg font-semibold mb-2" data-sb-field-path="label">
-                      {hero.phonePlaceholder.label}
-                    </p>
-                    <p className="text-sm opacity-75" data-sb-field-path="caption">
-                      {hero.phonePlaceholder.caption}
-                    </p>
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/20" aria-hidden />
                   </div>
                 </div>
               </div>
