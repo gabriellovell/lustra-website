@@ -122,13 +122,13 @@ export default function Home() {
       >
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <Image
-              src="/lustra-logo.svg"
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F3baef651a3394f3b8ece804fec9446e0%2F5bb0345ecabc49f2ad8b92ca329e7762?format=webp&width=800"
               alt={`${header.logoText} logo`}
               width={32}
               height={32}
-              priority
-              className="h-8 w-8"
+              decoding="async"
+              className="h-8 w-8 rounded"
             />
             <span className="text-xl font-bold text-gray-900" data-sb-field-path="logoText">
               {header.logoText}
