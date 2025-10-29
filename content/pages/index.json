@@ -10,7 +10,8 @@
       { "label": "Features", "targetId": "features" },
       { "label": "Pricing", "targetId": "pricing" },
       { "label": "Blog", "targetId": "/blog" },
-      { "label": "Contact", "targetId": "contact" }
+      { "label": "Contact", "targetId": "contact" },
+      { "label": "Privacy & Legal", "targetId": "/privacy-and-legal" }
     ]
   },
   "hero": {
@@ -86,7 +87,7 @@
   "footer": {
     "logoText": "Lustra AI",
     "links": [
-      { "label": "Privacy", "href": "/privacy", "type": "internal" },
+      { "label": "Privacy & Legal", "href": "/privacy-and-legal", "type": "internal" },
       { "label": "Terms", "href": "/terms", "type": "internal" },
       { "label": "Contact", "href": "mailto:support@lustraai.com", "type": "external" }
     ],
