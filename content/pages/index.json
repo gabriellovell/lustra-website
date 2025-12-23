@@ -19,10 +19,10 @@
     "highlight": "Turn more swipes into matches.",
     "description": "Lustra AI helps you stand out on dating apps with smarter bios, better photos, and conversation starters that work.",
     "primaryActions": [
-      { "label": "App Store → Download", "href": "#", "icon": "appStore" },
-      { "label": "Google Play → Download", "href": "#", "icon": "googlePlay" }
+      { "label": "App Store → Download", "href": "https://apps.apple.com/us/app/lustra-ai/id6753912203", "icon": "appStore" },
+      { "label": "Google Play → Coming Soon", "href": "#", "icon": "googlePlay", "disabled": true }
     ],
-    "secondaryAction": { "label": "Whop → Join as Creator", "href": "#" },
+    "secondaryAction": { "label": "Whop → Join as Creator", "href": "https://whop.com/lustra-ai/" },
     "phonePlaceholder": {
       "label": "Lustra AI",
       "caption": "App Screenshot"
@@ -55,7 +55,7 @@
         "icon": "chat"
       }
     ],
-    "cta": { "label": "Download Lustra AI", "href": "#" }
+    "cta": { "label": "Download Lustra AI", "href": "https://apps.apple.com/us/app/lustra-ai/id6753912203" }
   },
   "referral": {
     "title": "Referral Program",
@@ -66,17 +66,25 @@
     "title": "For Creators",
     "description": "Earn money by sharing Lustra with your audience.",
     "buttonLabel": "Join as Creator on Whop",
-    "buttonHref": "#"
+    "buttonHref": "https://whop.com/lustra-ai/"
   },
-  "testimonial": {
-    "quote": "Lustra AI helped me land more matches in a week than the last three months.",
-    "attribution": "Beta tester"
-  },
+  "testimonials": [
+    {
+      "quote": "Lustra AI helped me land more matches in a week than the last three months.",
+      "attribution": "Beta tester"
+    },
+    {
+      "quote": "The bio generator is incredible. I went from zero responses to conversations every day.",
+      "attribution": "Sarah, 28"
+    },
+    {
+      "quote": "Finally, an app that actually helps. The photo analyzer told me exactly which pics to use.",
+      "attribution": "Mike, 32"
+    }
+  ],
   "pricing": {
     "title": "Simple Pricing",
-    "subtitle": "Free plan available. Pro only $9.99/month.",
-    "ctaLabel": "See Pricing Details",
-    "ctaHref": "#"
+    "subtitle": "Free plan available. Pro only $9.99/month."
   },
   "contact": {
     "title": "Contact Us",

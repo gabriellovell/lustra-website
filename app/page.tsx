@@ -95,9 +95,10 @@ function FeatureIcon({ icon }: { icon: FeatureIconName }) {
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
 
   const pageContent = landingPageContent;
-  const { header, hero, whyLustra, features, referral, creators, testimonial, pricing, contact, footer } = pageContent;
+  const { header, hero, whyLustra, features, referral, creators, testimonials, pricing, contact, footer } = pageContent;
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -223,8 +224,9 @@ export default function Home() {
                       action.icon === "appStore"
                         ? "bg-black text-white hover:bg-gray-800"
                         : "bg-green-600 text-white hover:bg-green-700"
-                    }`}
+                    } ${"disabled" in action && action.disabled ? "opacity-50 cursor-not-allowed pointer-events-none" : ""}`}
                     data-sb-object-id={`hero.primaryActions.${index}`}
+                    {...("disabled" in action && action.disabled ? { "aria-disabled": "true" } : {})}
                   >
                     <HeroActionIcon icon={action.icon} />
                     <span data-sb-field-path="label">{action.label}</span>
@@ -368,19 +370,58 @@ export default function Home() {
       </section>
 
       {/* Social Proof Section */}
-      <section className="py-20 bg-white" data-sb-object-id="testimonial">
+      <section className="py-20 bg-white" data-sb-object-id="testimonials">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <div className="bg-gray-50 rounded-2xl p-8">
+            <div className="bg-gray-50 rounded-2xl p-8 relative">
               <svg className="w-12 h-12 text-yellow-400 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden>
                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
               </svg>
-              <p className="text-xl text-gray-700 italic mb-4" data-sb-field-path="quote">
-                &ldquo;{testimonial.quote}&rdquo;
+              <p className="text-xl text-gray-700 italic mb-4" data-sb-field-path={`testimonials.${currentTestimonialIndex}.quote`}>
+                &ldquo;{testimonials[currentTestimonialIndex].quote}&rdquo;
               </p>
-              <p className="text-gray-600" data-sb-field-path="attribution">
-                &mdash; {testimonial.attribution}
+              <p className="text-gray-600 mb-8" data-sb-field-path={`testimonials.${currentTestimonialIndex}.attribution`}>
+                &mdash; {testimonials[currentTestimonialIndex].attribution}
               </p>
+
+              {/* Navigation Arrows */}
+              <div className="flex items-center justify-center gap-4">
+                <button
+                  onClick={() => setCurrentTestimonialIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1))}
+                  className="p-2 rounded-full hover:bg-gray-200 transition-colors"
+                  aria-label="Previous testimonial"
+                >
+                  <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+
+                {/* Dots Navigation */}
+                <div className="flex gap-2">
+                  {testimonials.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentTestimonialIndex(index)}
+                      className={`w-2 h-2 rounded-full transition-all ${
+                        index === currentTestimonialIndex
+                          ? "bg-purple-600 w-8"
+                          : "bg-gray-300 hover:bg-gray-400"
+                      }`}
+                      aria-label={`Go to testimonial ${index + 1}`}
+                    />
+                  ))}
+                </div>
+
+                <button
+                  onClick={() => setCurrentTestimonialIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1))}
+                  className="p-2 rounded-full hover:bg-gray-200 transition-colors"
+                  aria-label="Next testimonial"
+                >
+                  <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -393,19 +434,21 @@ export default function Home() {
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4" data-sb-field-path="title">
               {pricing.title}
             </h2>
-            <p className="text-xl text-gray-600 mb-8" data-sb-field-path="subtitle">
+            <p className="text-xl text-gray-600" data-sb-field-path="subtitle">
               {pricing.subtitle}
             </p>
-            <a
-              href={pricing.ctaHref}
-              className="inline-flex items-center text-purple-600 hover:text-purple-700 font-semibold"
-              data-sb-field-path="ctaLabel"
-            >
-              {pricing.ctaLabel}
-              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </a>
+            {("ctaLabel" in pricing && pricing.ctaLabel && "ctaHref" in pricing) ? (
+              <a
+                href={pricing.ctaHref as string}
+                className="inline-flex items-center text-purple-600 hover:text-purple-700 font-semibold mt-8"
+                data-sb-field-path="ctaLabel"
+              >
+                {pricing.ctaLabel as string}
+                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            ) : null}
           </div>
         </div>
       </section>
